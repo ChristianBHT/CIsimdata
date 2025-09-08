@@ -2,7 +2,7 @@ Package: CIsimdata
 Type: Package
 Title: What the Package Does (Title Case)
 Version: 0.1.0
-Authors@R: person("Christian", "Thorjussen", email = "christianbern@gmail.com", role = c("aut", "cre")
+Authors@R: Authors@R: person("Christian", "Thorjussen", email = "christianbern@gmail.com", role = c("aut", "cre"))
 Description: A collection of synthetic data generators (continuous, categorical, mixed and high-dimensional) for research and testing of conditional independence and causal inference methods.
 License: MIT + file LICENSE
 Encoding: UTF-8
