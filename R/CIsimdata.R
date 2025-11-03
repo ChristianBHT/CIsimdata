@@ -54,7 +54,7 @@ SineGaussianBiv <- function(N, a = 1, d = 0){
   return(data.frame(Z1,Z2,X,Y))
 }
 
-#' Generate Sine-Gaussian Data (Bivariate)
+#' Generate Sine-Gaussian Data
 #'
 #' This function generates bivariate data with nonlinear dependencies based on a Gaussian density envelope and sinusoidal functions.
 #'
@@ -429,7 +429,6 @@ BinaryData <- function(N, threshold = 0) {
 
   return(df)
 }
-
 
 #' Generate Nonlinear Normal Data
 #'
