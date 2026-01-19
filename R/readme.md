@@ -1,7 +1,7 @@
 # simdata
 
 
-A small R package with many synthetic data generators intended for testing conditional independence and causal inference methods.
+Synthetic data generators intended for testing conditional independence and causal inference methods.
 
 
 Usage examples:
