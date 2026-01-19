@@ -697,3 +697,55 @@ HardCase <- function(N) {
 
   data.frame(X, Y, Z1, Z2)
 }
+
+
+#' Generate Data with Categorical Zs
+#'
+#' Generates data with a hard case scenario where X and Y are influenced by two Z variables in a nonlinear manner.
+#'
+#' @param n Integer. Sample size.
+#' @param K1 Integer. Number of categories for Z1.
+#' @param K2 Integer. Number of categories for Z2.
+#' @param sigma_y Numeric. Standard deviation of noise added to Y.
+#' @param sigma_x Numeric. Standard deviation of noise added to X.
+#' @param seed Integer or NULL. Random seed for reproducibility.
+#'
+#' @return A data frame with columns X, Y, Z1, and Z2.
+#' @export
+#' @importFrom stats runif rnorm
+#'
+#' @examples
+#' head(HardCase(100))
+#'
+simulate_cat_Z1_Z2_null <- function(
+    n = 1000,
+    K1 = 5,
+    K2 = 5,
+    sigma_y = 1.0,
+    sigma_x = 1.0,
+    seed = NULL
+) {
+  if (!is.null(seed)) set.seed(seed)
+
+  # Categorical Z's
+  Z1 <- factor(sample(seq_len(K1), n, replace = TRUE))
+  Z2 <- factor(sample(seq_len(K2), n, replace = TRUE))
+
+  z1_num <- as.numeric(Z1)
+  z2_num <- as.numeric(Z2)
+
+  g_Z <- sin(2 * pi * z1_num) + 0.3 * (z1_num * z2_num)
+
+  Y <- g_Z + rnorm(n, sd = sigma_y)
+
+  X <- scale(g_Z)[, 1] + rnorm(n, sd = sigma_x)
+
+  return(data.frame(
+    Y = Y,
+    X = X,
+    Z1 = Z1,
+    Z2 = Z2
+  ))
+}
+
+
