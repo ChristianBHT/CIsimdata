@@ -364,10 +364,7 @@ NonLinearData <- function(N) {
 #' @importFrom stats rnorm
 #' @return A data frame with columns Z1, Z2, X, and Y.
 #' @export
-#'
-#' @examples
-#' head(ComplexCategorization(100))
-#'
+
 ComplexCategorization <- function(N) {
   Z1 <- stats::rnorm(N)
   Z2 <- stats::rnorm(N)
@@ -411,10 +408,7 @@ ComplexCategorization <- function(N) {
 #' @importFrom stats rnorm
 #' @return A data frame with columns Z1, Z2, X, and Y.
 #' @export
-#'
-#' @examples
-#' head(BinaryData(100))
-#'
+
 BinaryData <- function(N, threshold = 0) {
   Z1 <- stats::rnorm(N)
   Z2 <- stats::rnorm(N)
@@ -438,9 +432,7 @@ BinaryData <- function(N, threshold = 0) {
 #' @return A data frame with columns Z1, Z2, X, and Y.
 #' @export
 #' @importFrom stats rnorm
-#' @examples
-#' head(NonLinNormal(N = 100))
-#'
+
 NonLinNormal <- function(N){
   Z1 <- stats::rnorm(N,0,1)
   Z2 <- stats::rnorm(N,0,1)
@@ -459,9 +451,7 @@ NonLinNormal <- function(N){
 #' @return A data frame with columns Z1, Z2, X, and Y.
 #' @export
 #' @importFrom stats rnorm runif
-#' @examples
-#' head(UniformNoise(100))
-#'
+
 UniformNoise <- function(N) {
   Z1 = stats::rnorm(N, 0, 1)
   Z2 = stats::rnorm(N, 0, 1)
@@ -480,9 +470,7 @@ UniformNoise <- function(N) {
 #' @return A data frame with columns Z1, Z2, X, and Y.
 #' @export
 #' @importFrom stats rnorm rexp
-#' @examples
-#' head(ExponentialNoise(100))
-#'
+
 ExponentialNoise <- function(N, rate_param = 1) {
   Z1 = stats::rnorm(N, 0, 1)
   Z2 = stats::rnorm(N, 0, 1)
@@ -504,9 +492,6 @@ ExponentialNoise <- function(N, rate_param = 1) {
 #' @return A data frame with columns Z1, Z2, X, and Y.
 #' @importFrom stats rnorm rpois
 #' @export
-#'
-#' @examples
-#' head(PoissonNoise(100))
 #'
 PoissonNoise <- function(N, lambda = 1){
   Z1 = stats::rnorm(N,0,1)
@@ -530,9 +515,6 @@ PoissonNoise <- function(N, lambda = 1){
 #' @importFrom stats rnorm
 #' @export
 #'
-#' @examples
-#' head(NonLinNormalZs(N = 100, Zs  = 20))
-#'
 NonLinNormalZs <- function(N, d = 0, Zs = 20) {
   Z <- replicate(Zs, stats::rnorm(N, 0, 1))
   colnames(Z) <- paste0("Z", 1:Zs)
@@ -553,8 +535,6 @@ NonLinNormalZs <- function(N, d = 0, Zs = 20) {
 #' @return A data frame with columns Z1, Z2, X, and Y.
 #' @export
 #' @importFrom stats rnorm
-#' @examples
-#' head(QuadThresh(100))
 
 QuadThresh <- function(N) {
   Z1 <- stats::rnorm(N)
@@ -578,9 +558,7 @@ QuadThresh <- function(N) {
 #' @return A data frame with columns Z1, Z2, X, and Y.
 #' @export
 #' @importFrom stats rnorm
-#' @examples
-#' head(GridPartition(100))
-#'
+
 GridPartition <- function(N) {
   Z1 <- stats::rnorm(N)
   Z2 <- stats::rnorm(N)
@@ -602,9 +580,7 @@ GridPartition <- function(N) {
 #' @return A data frame with columns Z1, Z2, X, and Y.
 #' @export
 #' @importFrom stats rnorm
-#' @examples
-#' head(PolyDecision(100))
-#'
+
 PolyDecision <- function(N) {
   Z1 <- stats::rnorm(N)
   Z2 <- stats::rnorm(N)
@@ -628,9 +604,6 @@ PolyDecision <- function(N) {
 #'
 #' @importFrom stats runif rnorm
 #' @export
-#'
-#' @examples
-#' head(SinCosThreshold(100))
 
 SinCosThreshold <- function(N) {
   Z1 <- stats::runif(N, -1, 1)
@@ -656,8 +629,7 @@ SinCosThreshold <- function(N) {
 #' @importFrom stats rnorm
 #' @export
 #'
-#' @examples
-#' head(ExpLogThreshold(100))
+
 
 ExpLogThreshold <- function(N) {
   Z1 <- stats::rnorm(N)
@@ -682,9 +654,7 @@ ExpLogThreshold <- function(N) {
 #' @export
 #' @importFrom stats runif rnorm
 #'
-#' @examples
-#' head(HardCase(100))
-#'
+
 HardCase <- function(N) {
   Z1 <- stats::runif(N, -2, 2)
   Z2 <- stats::runif(N, -2, 2)
@@ -713,9 +683,7 @@ HardCase <- function(N) {
 #' @export
 #' @importFrom stats runif rnorm
 #'
-#' @examples
-#' head(HardCase(100))
-#'
+
 simulate_cat_Z1_Z2_null <- function(
     n = 1000,
     K1 = 5,
@@ -735,9 +703,9 @@ simulate_cat_Z1_Z2_null <- function(
 
   g_Z <- sin(2 * pi * z1_num) + 0.3 * (z1_num * z2_num)
 
-  Y <- g_Z + rnorm(n, sd = sigma_y)
+  Y <- g_Z + stats::rnorm(n, sd = sigma_y)
 
-  X <- scale(g_Z)[, 1] + rnorm(n, sd = sigma_x)
+  X <- scale(g_Z)[, 1] + stats::rnorm(n, sd = sigma_x)
 
   return(data.frame(
     Y = Y,

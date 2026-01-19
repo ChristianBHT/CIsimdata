@@ -15,7 +15,3 @@ A data frame with columns Z1, Z2, X, and Y.
 \description{
 A more intricate categorization based on combinations of Z1 and Z2.
 }
-\examples{
-head(ComplexCategorization(100))
-
-}

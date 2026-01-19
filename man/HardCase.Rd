@@ -15,7 +15,3 @@ A data frame with columns X, Y, Z1, and Z2.
 \description{
 Generates data with a hard case scenario where X and Y are influenced by two Z variables in a nonlinear manner.
 }
-\examples{
-head(HardCase(100))
-
-}

@@ -15,6 +15,3 @@ A data frame with columns Z1, Z2, X, and Y.
 \description{
 Generates data with a quadratic threshold effect based on Z1 and Z2.
 }
-\examples{
-head(QuadThresh(100))
-}

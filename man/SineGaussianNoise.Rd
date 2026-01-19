@@ -2,7 +2,7 @@
 % Please edit documentation in R/CIsimdata.R
 \name{SineGaussianNoise}
 \alias{SineGaussianNoise}
-\title{Generate Sine-Gaussian Data (Bivariate)}
+\title{Generate Sine-Gaussian Data}
 \usage{
 SineGaussianNoise(N, a = 1, d = 0)
 }

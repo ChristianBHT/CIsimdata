@@ -15,7 +15,3 @@ A data frame with columns Z1, Z2, X, and Y.
 \description{
 Generates data with a polynomial decision boundary based on Z1 and Z2.
 }
-\examples{
-head(PolyDecision(100))
-
-}
